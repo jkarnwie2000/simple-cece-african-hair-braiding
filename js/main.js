@@ -163,6 +163,18 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
+    // Lift the button above the footer's bottom row (copyright / Photo credits)
+    // whenever that row is on screen, so it never covers the text.
+    const footerBottom = $(".footer-bottom");
+    if (footerBottom && "IntersectionObserver" in window) {
+      new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          btn.style.setProperty("--lift", `${footerBottom.offsetHeight + 12}px`);
+        }
+        btn.classList.toggle("is-lifted", entry.isIntersecting);
+      }).observe(footerBottom);
+    }
+
     btn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
       const skipTarget = $("#main");
