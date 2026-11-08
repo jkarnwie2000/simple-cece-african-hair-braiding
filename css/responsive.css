@@ -1,0 +1,164 @@
+/* ==========================================================================
+   Cece African Hair Braiding — Responsive layer (min-width breakpoints)
+   Base (mobile) styles live in style.css
+   ========================================================================== */
+
+/* ---------- ≥ 560px: large phones ---------- */
+@media (min-width: 560px) {
+  :root { --gutter: 1.75rem; }
+
+  .features,
+  .values { grid-template-columns: repeat(2, 1fr); }
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { gap: 1rem; }
+  .mosaic { gap: 1rem; }
+
+  .form-card { padding: 2.5rem 2.25rem; }
+  .form-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .form-grid--2 .form-group--full { grid-column: 1 / -1; }
+
+  .summary dl div { grid-template-columns: 150px 1fr; gap: 1rem; }
+
+  .hero__actions .btn { flex: 0 0 auto; }
+  .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+  .call-banner { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+/* ---------- ≥ 768px: tablets ---------- */
+@media (min-width: 768px) {
+  :root { --section-y: 6rem; }
+
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .mosaic {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+  }
+  .mosaic .gallery-item { aspect-ratio: auto; }
+  .mosaic .gallery-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+  .mosaic .gallery-item:nth-child(4) { grid-row: span 2; }
+
+  .testimonials { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .footer-grid > :first-child { grid-column: 1 / -1; }
+
+  .service-category__head {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .contact-cards { grid-template-columns: repeat(2, 1fr); }
+  .info-panel { padding: 2.5rem 2.25rem; }
+
+  .split__media .split__media-accent { right: -1.5rem; }
+
+  .lightbox { padding: 4.5rem 6rem 3rem; }
+  .lightbox__prev,
+  .lightbox__next { top: 50%; bottom: auto; transform: translateY(-50%); }
+  .lightbox__prev { left: 1.5rem; }
+  .lightbox__next { right: 1.5rem; }
+  .lightbox__img { max-height: calc(100vh - 11rem); max-height: calc(100dvh - 11rem); }
+  .page-hero { padding: 5.5rem 0 5rem; }
+}
+
+/* ---------- ≥ 1024px: laptops / desktop nav ---------- */
+@media (min-width: 1024px) {
+  :root { --header-h: 84px; --gutter: 2rem; }
+
+  .nav__toggle { display: none; }
+  .nav__menu {
+    position: static;
+    inset: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+    background: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+  .nav__list { flex-direction: row; gap: 0.25rem; }
+  .nav__link {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    padding: 0.5rem 0.85rem;
+  }
+  .nav__link::after {
+    content: "";
+    position: absolute;
+    left: 0.85rem; right: 0.85rem; bottom: 0.2rem;
+    height: 1.5px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s var(--ease);
+  }
+  .nav__link:hover::after,
+  .nav__link.is-active::after { transform: scaleX(1); }
+  .nav__link.is-active { font-style: normal; color: var(--brown); }
+  .nav__cta { margin: 0; }
+  .nav__cta .btn { width: auto; min-height: 46px; padding: 0.65rem 1.4rem; }
+
+  .hero { padding: 4.5rem 0 6rem; }
+  .hero__grid { grid-template-columns: 1.1fr 0.9fr; gap: 4rem; }
+  .hero__visual { max-width: none; }
+  .hero__badge { left: -2.5rem; }
+  .hero__seal { right: -2rem; width: 120px; height: 120px; }
+
+  .features { grid-template-columns: repeat(3, 1fr); }
+  .features .feature-card:nth-child(4) { grid-column: 1 / 2; }
+  .service-grid { grid-template-columns: repeat(3, 1fr); }
+  .values { grid-template-columns: repeat(4, 1fr); }
+  .testimonials { grid-template-columns: repeat(3, 1fr); }
+
+  .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+  .gallery-grid .gallery-item:nth-child(6n + 1) { grid-row: span 2; aspect-ratio: auto; }
+
+  .split { grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .split--reverse .split__media { order: 2; }
+
+  .booking-layout { grid-template-columns: 1.6fr 1fr; gap: 3rem; }
+  .info-panel { position: sticky; top: calc(var(--header-h) + 1.5rem); }
+
+  .contact-layout { grid-template-columns: 1fr 1.15fr; gap: 3rem; align-items: start; }
+  .contact-cards { grid-template-columns: 1fr; }
+
+  .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 3rem; }
+  .footer-grid > :first-child { grid-column: auto; }
+
+  .form-card { padding: 3rem; }
+  .back-to-top { right: 2rem; bottom: 2rem; }
+}
+
+/* Feature grid: 5 cards → centered last row on desktop */
+@media (min-width: 1024px) {
+  .features {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .features .feature-card { grid-column: span 2; }
+  .features .feature-card:nth-child(4) { grid-column: 2 / span 2; }
+  .features .feature-card:nth-child(5) { grid-column: 4 / span 2; }
+}
+
+/* ---------- ≥ 1280px: wide screens ---------- */
+@media (min-width: 1280px) {
+  .hero__grid { gap: 6rem; }
+  .split { gap: 6.5rem; }
+}
+
+/* ---------- Short landscape phones ---------- */
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 1023px) {
+  .nav__menu { justify-content: flex-start; overflow-y: auto; }
+  .nav__link { font-size: 1.5rem; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header, .site-footer, .back-to-top, .cta-band, .lightbox, .toast { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  body { background: #fff; }
+}
